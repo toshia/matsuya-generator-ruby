@@ -28,6 +28,8 @@ gem 'matsuya'
 牛めし
 % matsuya
 めし
+% matsuya 0.8
+オリジナルチリソースハンバーグ定食
 % matsuya
 プレミアムカルビキムカル丼
 %
