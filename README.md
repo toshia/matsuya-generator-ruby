@@ -1,26 +1,55 @@
 # Matsuya
 
-TODO: Write a gem description
+既存の松屋のメニューを参考にして、ありそうなメニューを適当に作ります。たまに実在するメニューも出てきます。
 
 ## Installation
 
-Add this line to your application's Gemfile:
+bundle
 
 ```ruby
 gem 'matsuya'
 ```
 
-And then execute:
+こうじゃ
 
     $ bundle
 
-Or install it yourself as:
+こっちでもいいかな
 
     $ gem install matsuya
 
 ## Usage
+### シェルから使う
+`gem install`した場合は、以下のようなコマンドを入力するとなにか出てきます。
+```
+% bundle exec matsuya
+牛めし
+% bundle exec matsuya
+牛めし
+% bundle exec matsuya
+めし
+% bundle exec matsuya
+プレミアムカルビキムカル丼
+%
+```
+キツい
 
-TODO: Write usage instructions here
+### ライブラリとして
+```ruby
+require 'matsuya'
+
+puts Matsuya.order
+puts Matsuya.order(0)
+puts Matsuya.order(0.8)
+```
+
+output:
+
+```
+キムチチゲ膳（プレミアム牛肉使用）
+プレミアム旨辛ネギ塩豚バラ生姜焼定食
+シャンピニオンソース豆腐カレー
+```
 
 ## Contributing
 
