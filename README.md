@@ -22,13 +22,13 @@ gem 'matsuya'
 ### シェルから使う
 `gem install`した場合は、以下のようなコマンドを入力するとなにか出てきます。
 ```
-% bundle exec matsuya
+% matsuya
 牛めし
-% bundle exec matsuya
+% matsuya
 牛めし
-% bundle exec matsuya
+% matsuya
 めし
-% bundle exec matsuya
+% matsuya
 プレミアムカルビキムカル丼
 %
 ```
