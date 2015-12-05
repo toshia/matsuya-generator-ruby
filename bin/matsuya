@@ -7,7 +7,7 @@ if ARGV.include?('--help') || ARGV.include?('-h')
   exit
 end
 
-if ARGV.size > 0 && ARGV[0].match(/^[0-9]+(?:\.[0-9]+)$/)
+if ARGV.size > 0 && ARGV[0].match(/^[0-9]+(?:\.[0-9]+)?$/)
   puts Matsuya.order(ARGV[0].to_f)
 else
   puts Matsuya.order
