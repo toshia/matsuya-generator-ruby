@@ -71,7 +71,7 @@ module Matsuya
     #   Matsuya::NetworkNode 再帰呼出し用。省略する。
     # ==== Return
     # Array 材料を並べた配列
-    def generate(okano: 1/10r, current: network.find{|n|n.node == :begin})
+    def generate(okano: 0.1, current: network.find{|n|n.node == :begin})
       if current.is_a? NetworkNode
         nex = current.follow.sample
         if nex.is_a?(NetworkNode) and rand < okano
@@ -129,7 +129,7 @@ module Matsuya
     #   Float おかの値。おかの値が高いと商品が変異する確率が上がる。0-1の範囲の値。
     # ==== Return
     # String 商品名
-    def order(okano=1/10r) # !> shadowing outer local variable - ys2
+    def order(okano=0.1) # !> shadowing outer local variable - ys2
       preparation(generate.reject{|x|x==:begin}).join
     end
   end
