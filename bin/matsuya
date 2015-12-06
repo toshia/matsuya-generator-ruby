@@ -1,14 +1,29 @@
 #!/usr/bin/env ruby
+# coding: utf-8
 
 require 'matsuya'
-
-if ARGV.include?('--help') || ARGV.include?('-h')
-  puts "Usage: matsuya [okano]"
-  exit
+require 'optparse'
+okano = 0.1
+OptionParser.new do |opt|
+  opt.banner = "Usage: matsuya [options]"
+  opt.separator "options are:"
+  opt.on('-h', '--help', "Show this message") do
+    puts opt
+    exit
+  end
+  opt.on('-o', '--okano=', "おかの値(0.0-1.0 default %f)" % okano) do |value|
+    if value.match(/^[0-9]+(?:\.[0-9]+)?$/)
+      okano = value.to_f
+    else
+      warn 'Invalid おかの値 (-h to show help message)'
+      abort
+    end
+  end
+  opt.parse!(ARGV)
 end
 
 if ARGV.size > 0 && ARGV[0].match(/^[0-9]+(?:\.[0-9]+)?$/)
   puts Matsuya.order(ARGV[0].to_f)
 else
-  puts Matsuya.order
+  puts Matsuya.order(okano: okano)
 end
