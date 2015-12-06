@@ -11,7 +11,7 @@ OptionParser.new do |opt|
     puts opt
     exit
   end
-  opt.on('-o', '--okano=', "おかの値(0.0-1.0 default %f)" % okano) do |value|
+  opt.on('-o', '--okano=', "出力が狂う確率(0.0-1.0 default %f)" % okano) do |value|
     if value.match(/^[0-9]+(?:\.[0-9]+)?$/)
       okano = value.to_f
     else
