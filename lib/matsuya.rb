@@ -178,7 +178,7 @@ module Matsuya
     # ==== Return
     # String 商品名
     def order(okano=0.1) # !> shadowing outer local variable - ys2
-      preparation(generate.reject{|x|x==:begin}).join
+      preparation(generate(okano).reject{|x|x==:begin}).join
     end
   end
 end
