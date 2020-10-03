@@ -181,6 +181,10 @@ module Matsuya
           [head, :カレギュウ, tail]
         end
 
+        with(Egison::List.(*_head, :ハンバーグ, :皿, *_tail)) do
+          [head, :バーグディッシュ, tail]
+        end
+
         with(Egison::Multiset.(*_not_match)) do
           not_match
         end
