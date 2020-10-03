@@ -11,53 +11,59 @@ module Matsuya
   # 牛めしのようにプレミアムとそうでないものがある場合は、プレミアムだけを書く
   # オリジナルカレギュウ（プレミアム牛肉使用）も、プレミアムとして扱い、プレミアム牛肉使用と書いていないほうは書かない
   Sample = Set.new([ Menu.new(%i[プレミアム 牛 めし], 380),
-                     Menu.new(%i[プレミアム 旨 辛 ネギ たま 牛 めし], 480),
+                     Menu.new(%i[ネギ たっぷり プレミアム 旨 辛 ネギ 玉子 牛めし], 490),
                      Menu.new(%i[プレミアム おろし ポン酢 牛 めし], 480),
-                     Menu.new(%i[プレミアム キムチ 牛 めし], 480),
-                     Menu.new(%i[プレミアム 牛 とじ 丼], 550),
-                     Menu.new(%i[オリジナル カレー], 330),
-                     Menu.new(%i[オリジナル カレギュウ （プレミアム牛肉使用）], 500),
-                     Menu.new(%i[オリジナル カレギュウ], 490),
-                     Menu.new(%i[オリジナル ハンバーグ カレー], 590),
-                     Menu.new(%i[ネギ たっぷり ネギ 塩 豚 カルビ 丼], 450),
-                     Menu.new(%i[ビビンバ 丼], 450),
-                     Menu.new(%i[キムチ カルビ 丼], 490),
-                     Menu.new(%i[豚 テキ 定食], 690),
-                     Menu.new(%i[シャンピニオン ソース ハンバーグ 定食], 650),
-                     Menu.new(%i[牛 焼肉 定食], 590),
-                     Menu.new(%i[カルビ 焼肉 定食], 630),
-                     Menu.new(%i[豚 バラ 焼肉 定食], 550),
-                     Menu.new(%i[スタミナ 豚 バラ 生姜焼 定食], 590),
-                     Menu.new(%i[鶏 チリ ソース 定食], 630),
-                     Menu.new(%i[ブラウン ソース ハンバーグ 定食], 630),
-                     Menu.new(%i[豆腐 キムチ チゲ 膳 （プレミアム牛肉使用）], 530),
-                     Menu.new(%i[チゲ カルビ 焼肉 膳 （プレミアム牛肉使用）], 720),
-                     # 鉄皿メニュー
-                     Menu.new(%i[鉄皿 鶏 グリル セット], 640),
-                     Menu.new(%i[鉄皿 ブラウン ソース ハンバーグ セット], 520),
-                     Menu.new(%i[鉄皿 旨 トマト ハンバーグ セット], 520), # 鉄皿 うま トマ ハンバーグ セット
-                     # うどん
-                     Menu.new(%i[肉 カレー うどん ], 450),
-                     Menu.new(%i[肉 カレー うどん + 牛 めし], 680),
-                     Menu.new(%i[肉 カレー うどん + ライス], 520),
-                     Menu.new(%i[ミニ カレー うどん], 200),
-                     Menu.new(%i[肉 カレー うどん （プレミアム牛肉使用）], 450),
-                     Menu.new(%i[肉 カレー うどん （プレミアム牛肉使用） + プレミアム 牛 めし], 770),
-                     Menu.new(%i[肉 カレー うどん  （プレミアム牛肉使用） + ライス], 520),
-                     Menu.new(%i[担々 うどん （関西風だし）], 450),
-                     Menu.new(%i[担々 うどん （関西風だし） + 牛 めし], 680),
-                     Menu.new(%i[担々 うどん], 450),
-                     Menu.new(%i[担々 うどん + プレミアム 牛 めし], 770),
-                     Menu.new(%i[とろ たま うどん （関西風だし）], 410),
-                     Menu.new(%i[とろ たま うどん （関西風だし） + 牛 めし], 640),
-                     Menu.new(%i[とろ たま うどん], 410),
-                     Menu.new(%i[とろ たま うどん + プレミアム 牛 めし], 730),
-                     Menu.new(%i[きつね うどん （関西風だし）], 390),
-                     Menu.new(%i[きつね うどん （関西風だし） + 牛 めし], 620),
-                     Menu.new(%i[きつね うどん], 390),
-                     Menu.new(%i[きつね うどん + プレミアム 牛 めし], 710),
-                     Menu.new(%i[ミニ うどん （関西風だし）], 180),
-                     Menu.new(%i[ミニ うどん], 180),
+                     Menu.new(%i[味噌漬け トンテキ 牛 めし （国産玉ねぎ使用） + キムチ], 730),
+                     Menu.new(%i[味噌漬け トンテキ 牛 めし （国産玉ねぎ使用） + 生野菜 + キムチ], 830),
+                     Menu.new(%i[味噌漬け トンテキ 牛 めし （国産玉ねぎ使用） + とろろ], 730),
+                     Menu.new(%i[味噌漬け トンテキ 牛 めし （国産玉ねぎ使用） + 生野菜 + とろろ], 830),
+                     Menu.new(%i[創業 牛 カレー], 490), # 創業ビーフカレー
+                     Menu.new(%i[創業 牛 カレー + 生野菜], 590),
+                     Menu.new(%i[創業 プレミアム 牛 カレー 牛], 720),
+                     Menu.new(%i[創業 牛 カレー 牛], 660),
+                     Menu.new(%i[創業 ハンバーグ 牛 カレー], 720),
+                     Menu.new(%i[味噌漬け トンテキ 丼 + キムチ], 730),
+                     Menu.new(%i[味噌漬け トンテキ 丼 + とろろ], 730),
+                     Menu.new(%i[味噌漬け トンテキ 丼 + 生野菜 + キムチ], 830),
+                     Menu.new(%i[味噌漬け トンテキ 丼 + 生野菜 + とろろ], 830),
+                     Menu.new(%i[豚 キムチ 丼], 650),
+                     Menu.new(%i[キムチ カルビ 丼], 500),
+                     Menu.new(%i[ネギ たっぷり ネギ 塩 豚 肩ロース 丼], 500),
+                     Menu.new(%i[ビビンバ 丼], 500),
+                     Menu.new(%i[まぐろ 丼 6枚盛], 730),
+                     Menu.new(%i[まぐろ 丼 大漁12枚盛], 1000),
+                     Menu.new(%i[海老 チリ ソース 定食], 730),
+                     Menu.new(%i[海老 チリ ソース 定食 + ポテトサラダ], 790),
+                     Menu.new(%i[豚 キムチ 定食], 730),
+                     Menu.new(%i[牛 焼肉 定食], 600),
+                     Menu.new(%i[カルビ 焼肉 定食], 660),
+                     Menu.new(%i[豚 肩ロース 豚 焼肉定食], 600),
+                     Menu.new(%i[豚 肩ロース 生姜焼 定食], 660),
+                     Menu.new(%i[ブラウン ソース ハンバーグ 定食], 600),
+                     Menu.new(%i[ブラウン ソース 玉子 ハンバーグ 定食], 680),
+                     Menu.new(%i[プレミアム 牛皿 + 牛 焼肉], 730),
+                     Menu.new(%i[プレミアム 牛皿 + 牛 焼肉 + 生野菜], 830),
+                     Menu.new(%i[プレミアム 牛皿 + 豚 焼肉], 730),
+                     Menu.new(%i[プレミアム 牛皿 + 豚 焼肉 + 生野菜], 830),
+                     Menu.new(%i[プレミアム 牛皿 + ブラウン ソース ハンバーグ], 730),
+                     Menu.new(%i[プレミアム 牛皿 + ブラウン ソース ハンバーグ + 生野菜], 830),
+                     Menu.new(%i[プレミアム 牛皿 + 焼鮭], 730),
+                     Menu.new(%i[プレミアム 牛皿 + 焼鮭 生野菜], 830),
+                     Menu.new(%i[プレミアム 牛皿 + カルビ 焼肉], 790),
+                     Menu.new(%i[プレミアム 牛皿 + カルビ 焼肉 + 生野菜], 890),
+                     Menu.new(%i[プレミアム 牛皿 + 豚 生姜焼], 790),
+                     Menu.new(%i[プレミアム 牛皿 + 豚 生姜焼 + 生野菜], 890),
+                     Menu.new(%i[おこさま プレミアム 牛 めし プレート], 390),
+                     Menu.new(%i[おこさま 牛 めし プレート], 390),
+                     Menu.new(%i[おこさま カレー プレート], 390),
+                     Menu.new(%i[おもちゃ セット], 200),
+                     Menu.new(%i[りんご ジュース], 100),
+                     Menu.new(%i[ぶっかけ うどん], 320),
+                     Menu.new(%i[ぶっかけ うどん + ミニ プレミアム 牛 めし], 620),
+                     Menu.new(%i[ぶっかけ うどん + ミニ 創業 カレー], 620),
+                     Menu.new(%i[ぶっかけ とろろ 玉子 うどん], 400),
+                     Menu.new(%i[ぶっかけ とろろ 玉子 うどん + ミニ プレミアム 牛 めし], 700),
+                     Menu.new(%i[ぶっかけ とろろ 玉子 うどん + ミニ 創業 カレー], 700),
                    ])
 
   # 松屋の朝定食
@@ -135,32 +141,48 @@ module Matsuya
           [head, :キムカル, tail]
         end
 
+        with(Egison::List.(*_head, :創業, :牛, *_tail)) do
+          [head, :創業ビーフ, tail]
+        end
+
+        with(Egison::List.(*_head, :創業, :プレミアム, :牛, *_tail)) do
+          [head, :創業プレミアムビーフ, tail]
+        end
+
+        with(Egison::List.(*_head, :牛, :カレー, *_tail)) do
+          [head, :ビーフカレー, tail]
+        end
+
         with(Egison::List.(*_head, :ビビンバ, :丼, *_tail)) do
           [head, :ビビン丼, tail]
         end
 
-        with(Egison::List.(*_head, :鶏, :チリ, *_tail)) do
-          [head, :鶏のチリ, tail]
+        with(Egison::List.(*_head, :海老, :チリ, *_tail)) do
+          [head, :海老のチリ, tail]
         end
 
-        with(Egison::List.(*_head, :カルビ, :焼肉, *_tail)) do
-          [head, :カルビ焼, tail]
+        with(Egison::List.(*_head, *%i[豚 肩ロース 豚 焼肉定食], *_tail)) do
+          [head, :豚, :肩ロース, :の, :豚, :焼肉定食, tail]
         end
 
-        with(Egison::List.(*_head, :旨, :トマト, *_tail)) do
-          [head, :うまトマ, tail]
+        with(Egison::List.(*_head, *%i[豚 肩ロース 生姜焼 定食], *_tail)) do
+          [head, :豚, :肩ロース, :の, :生姜焼, :定食, tail]
         end
 
-        with(Egison::List.(*_head, :鶏, :グリル, *_tail)) do
-          [head, :チキン, :グリル, tail]
+        with(Egison::List.(*_head, :玉子, :ハンバーグ, *_tail)) do
+          [head, :エッグ, :ハンバーグ, tail]
         end
 
-        with(Egison::List.(*_head, :プレミアム, *_center, :（プレミアム牛肉使用）, *_tail)) do
-          [head, :プレミアム, center + tail]
+        with(Egison::List.(*_head, :ネギ, :玉子, *_tail)) do
+          [head, :ネギたま, tail]
         end
 
-        with(Egison::List.(*_head, :牛, :めし, *_center, :（プレミアム牛肉使用）, *_tail)) do
-          [:プレミアム, head, :牛, :めし, center + tail]
+        with(Egison::List.(*_head, :とろろ, :玉子, *_tail)) do
+          [head, :とろたま, tail]
+        end
+
+        with(Egison::List.(*_head, :カレー, :牛, *_tail)) do
+          [head, :カレギュウ, tail]
         end
 
         with(Egison::Multiset.(*_not_match)) do
@@ -177,8 +199,8 @@ module Matsuya
     #   Float おかの値。おかの値が高いと商品が変異する確率が上がる。0-1の範囲の値。
     # ==== Return
     # String 商品名
-    def order(okano=0.1) # !> shadowing outer local variable - ys2
-      preparation(generate.reject{|x|x==:begin}).join
+    def order(okano: 0.1)
+      preparation(generate(okano: okano).reject{|x|x==:begin}).join
     end
   end
 end
