@@ -77,24 +77,24 @@ module Matsuya
     end
   end
 
-  class << self
-    # 松屋ネットワークを構築し、始点を返す。
-    # ==== Return
-    # Matsuya::NetworkNode beginノード
-    def network
-      dic = { begin: NetworkNode.new(:begin, []) }
-      Sample.each do |menu|
-        [:begin, *menu.pattern, menu.price].each_cons(2) do |current, follow|
-          node = dic[current] ||= NetworkNode.new(current, [])
-          node.follow << if follow.is_a? Symbol
-                           dic[follow] ||= NetworkNode.new(follow, [])
-                         else
-                           follow
-                         end
-        end
-      end
-      dic.values
+  dic = { begin: NetworkNode.new(:begin, []) }
+  Sample.each do |menu|
+    [:begin, *menu.pattern, menu.price].each_cons(2) do |current, follow|
+      node = dic[current] ||= NetworkNode.new(current, [])
+      node.follow << if follow.is_a? Symbol
+                       dic[follow] ||= NetworkNode.new(follow, [])
+                     else
+                       follow
+                     end
     end
+  end
+
+  # 松屋ネットワークを構築し、始点を返す。
+  NETWORK = dic.values
+
+  class << self
+    # 互換性のため
+    def network = NETWORK
 
     # お客様に提供する商品を作る。私は接客は不得意なので、ランダムなものが出てくる。
     # おかの値が1に近づくほど狂った商品が出てくる。
@@ -105,11 +105,11 @@ module Matsuya
     #   Matsuya::NetworkNode 再帰呼出し用。省略する。
     # ==== Return
     # Array 材料を並べた配列
-    def generate(okano: 0.1, current: network.find { |n| n.node == :begin })
+    def generate(okano: 0.1, current: NETWORK.find { |n| n.node == :begin })
       if current.is_a? NetworkNode
         nex = current.follow.sample
         if nex.is_a?(NetworkNode) && (rand < okano)
-          [current.node, *generate(okano: okano, current: network.sample)]
+          [current.node, *generate(okano: okano, current: NETWORK.sample)]
         else
           [current.node, *generate(okano: okano, current: nex)]
         end
@@ -167,7 +167,7 @@ module Matsuya
     # ==== Return
     # String 商品名
     def order(okano: 0.1)
-      preparation(generate(okano: okano).reject { |x| x == :begin }).join
+      preparation(generate(okano: okano).reject { _1 == :begin }).join
     end
   end
 end
