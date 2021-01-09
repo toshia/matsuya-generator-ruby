@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# shareable_constant_value: experimental_copy
 
 require 'matsuya/version'
 require 'set'
@@ -168,6 +168,20 @@ module Matsuya
     # String 商品名
     def order(okano: 0.1)
       preparation(generate(okano: okano).reject { _1 == :begin }).join
+    end
+
+    def bulk_order(count, okano: 0.1, nproc: 2)
+      pipe = Ractor.new { loop { Ractor.yield Ractor.recv } }
+      ractors = nproc.times.map {
+        Ractor.new(pipe) { |pipe| loop { Ractor.yield -Matsuya.order(okano: pipe.take) } }
+      }
+      count.times do
+        pipe << okano
+      end
+      count.times.map do
+        _, food = Ractor.select(*ractors)
+        food
+      end
     end
   end
 end
