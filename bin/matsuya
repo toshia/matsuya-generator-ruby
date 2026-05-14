@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # coding: utf-8
 
+Warning[:experimental] = false
+
 require 'matsuya'
 require 'optparse'
 okano = 0.1
